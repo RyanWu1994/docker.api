@@ -17,7 +17,7 @@ curl -H "Content-Type:application/json" -X POST -d '{"name":"Jessica","job_title
 curl 127.0.0.1:80/user
 ```
 
-##Delete User
+## Delete User
 ```
 curl -X DELETE 127.0.0.1:80/user/<id>
 ```
