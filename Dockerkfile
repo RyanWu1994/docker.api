@@ -2,13 +2,9 @@ FROM python:3.6.11-buster
 
 WORKDIR /app
 
-COPY requirements.txt /app
-
 RUN pip install --upgrade pip
 
-RUN pip install -r requirements.txt
-
-RUN python -m pip install mysql-connector
+RUN python -m pip install mysql-connector flask
 
 COPY main.py /app
 
