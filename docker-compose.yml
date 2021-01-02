@@ -26,13 +26,3 @@ services:
     ports:
       - 3306:3306
 
-  adminer:
-    image: adminer
-    container_name: adminer
-    restart: always
-    depends_on:
-      - mysql
-    environment:
-      MYSQL_ROOT_PASSWORD: Pn123456
-    ports:
-      - 8080:8080
