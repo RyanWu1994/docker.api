@@ -3,26 +3,14 @@ import logging
 import mysql.connector
 import os
 
-
 app = Flask(__name__)
 logging.basicConfig(level=logging.DEBUG)
 
 
-test_useri = {
-   "name": "Siang",
-   "job_title": "SRE",
-   "communicate_information": {
-     "email": "asuna900717@gmail.com",
-     "mobile": "0920-790-312"
-   }
- }
-
 mydb = mysql.connector.connect(
-  #host=os.environ['HOST_IP'],
-  host="192.168.0.12",
+  host=os.environ['HOST_IP'],
   user="admin",
-  #password=os.environ['MYSQL_PASSWORD'],
-  password="Pn123456",
+  password=os.environ['MYSQL_PASSWORD'],
   database="Testdb",
   connect_timeout=1000,
 )
@@ -33,15 +21,6 @@ mycursor.close()
 
 mydb.commit()
 mydb.close()
-
-
-
-def rows_to_json(cols,rows):
-    result = []
-    for row in rows:
-        data = dict(zip(cols, row))
-        result.append(data)
-    return json.dumps(result, default=type_handler)
 
 def db_connection(f_host,f_user,f_password,f_database):
     db_con = mysql.connector.connect(
