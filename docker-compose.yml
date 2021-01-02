@@ -1,0 +1,38 @@
+version: '3.0'
+services:
+  api_server:
+    build: .
+    container_name: flask-server
+    restart: always
+    depends_on:
+    - mysql
+    ports:
+      - 8888:8888
+    environment:
+      HOST_IP: 192.168.100.11
+      MYSQL_PASSWORD: Pn123456
+      MYSQL_DATABASE: Testdb
+      MYSQL_USER: admin
+
+  mysql:
+    image: mysql/mysql-server:5.7
+    container_name: mysql
+    restart: always
+    environment:
+      MYSQL_USER: admin
+      MYSQL_PASSWORD: Pn123456
+      MYSQL_ROOT_PASSWORD: Pn123456
+      MYSQL_DATABASE: Testdb
+    ports:
+      - 3306:3306
+
+  adminer:
+    image: adminer
+    container_name: adminer
+    restart: always
+    depends_on:
+      - mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: Pn123456
+    ports:
+      - 8080:8080

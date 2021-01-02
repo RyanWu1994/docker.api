@@ -8,11 +8,11 @@ logging.basicConfig(level=logging.DEBUG)
 
 
 mydb = mysql.connector.connect(
-  host=os.environ['HOST_IP'],
-  user="admin",
-  password=os.environ['MYSQL_PASSWORD'],
-  database="Testdb",
-  connect_timeout=1000,
+  host = os.environ['HOST_IP'],
+  user = os.environ["MYSQL_USER"],
+  password = os.environ['MYSQL_PASSWORD'],
+  database = os.environ["MYSQL_DATABASE"],
+  connect_timeout = 1000,
 )
 
 mycursor = mydb.cursor()
@@ -32,7 +32,7 @@ def db_connection(f_host,f_user,f_password,f_database):
     )
     return db_con
 
-global_con = db_connection("192.168.0.12","admin","Pn123456","Testdb")
+global_con = db_connection(os.environ['HOST_IP'],os.environ["MYSQL_USER"],os.environ['MYSQL_PASSWORD'],os.environ["MYSQL_DATABASE"])
 
 logging.info('Starting to running API server')
 
@@ -61,9 +61,8 @@ def user_all():
 
       get_cursor.close()
       res = make_response(jsonify(users), 200)
-      #res = make_response(jsonify(test_useri), 200)
       return res
-      #return jsonify(test_useri)
+
     except Exception as e:
       return {'error': str(e)}
 
