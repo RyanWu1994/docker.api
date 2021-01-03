@@ -9,7 +9,7 @@ services:
     ports:
       - 8888:8888
     environment:
-      HOST_IP: 192.168.100.11
+      HOST_IP: 192.168.100.12
       MYSQL_PASSWORD: Pn123456
       MYSQL_DATABASE: Testdb
       MYSQL_USER: admin
