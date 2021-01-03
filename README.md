@@ -9,21 +9,21 @@ docker-compose -f docker-compose.yml up -d
 ```
 ## Insert User
 ```
-curl -H "Content-Type:application/json" -X POST -d '{"name":"Jessica","job_title":"RD","email":"jessica@gmail.com","mobile":"0988-323-312"}' 127.0.0.1:80/user
+curl -H "Content-Type:application/json" -X POST -d '{"name":"Jessica","job_title":"RD","email":"jessica@gmail.com","mobile":"0988-323-312"}' 127.0.0.1:8888/user
 ```
 
 ## Get all User
 ```
-curl 127.0.0.1:80/user
+curl 127.0.0.1:8888/user
 ```
 
 ## Delete User
 ```
-curl -X DELETE 127.0.0.1:80/user/<id>
+curl -X DELETE 127.0.0.1:8888/user/<id>
 ```
 
 ## Update User
 ```
-curl -H "Content-Type:application/json" -X PUT -d '{"id": "1","email":"test@gmail.com"}' 127.0.0.1:80/user
-curl -H "Content-Type:application/json" -X PUT -d '{"id": "1","job_title":"CTO"}' 127.0.0.1:80/user
+curl -H "Content-Type:application/json" -X PUT -d '{"id": "1","email":"test@gmail.com"}' 127.0.0.1:8888/user
+curl -H "Content-Type:application/json" -X PUT -d '{"id": "1","job_title":"CTO"}' 127.0.0.1:8888/user
 ```
