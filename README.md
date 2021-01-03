@@ -23,5 +23,7 @@ curl -X DELETE 127.0.0.1:80/user/<id>
 ```
 
 ## Update User
+```
 curl -H "Content-Type:application/json" -X PUT -d '{"id": "1","email":"test@gmail.com"}' 127.0.0.1:80/user
 curl -H "Content-Type:application/json" -X PUT -d '{"id": "1","job_title":"CTO"}' 127.0.0.1:80/user
+```
